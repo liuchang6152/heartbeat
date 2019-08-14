@@ -18,4 +18,9 @@ public class BaseController {
     public String index(){
         return "base/index";
     }
+
+    @RequestMapping("/header")
+    public String header(){
+        return "base/header";
+    }
 }

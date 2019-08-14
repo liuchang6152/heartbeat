@@ -30,10 +30,10 @@ public class TelnetUtil {
         }
     }
 
-    public static void main(String[] args) {
-        HostEntity hostEntity = new HostEntity();
-        TelnetEntity telnetEntity = new TelnetEntity("3306",hostEntity);
-        System.out.println(telnet(telnetEntity));
-    }
+//    public static void main(String[] args) {
+//        HostEntity hostEntity = new HostEntity();
+//        TelnetEntity telnetEntity = new TelnetEntity("3306",hostEntity);
+//        System.out.println(telnet(telnetEntity));
+//    }
 
 }
