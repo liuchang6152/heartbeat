@@ -1,16 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../static/dist/js/jquery-2.1.0.min.js"></script>
+    <script src="../../static/dist/js/bootstrap.js"></script>
+    <script src="../../static/dist/js/bootstrap.bundle.js"></script>
+    <script src="../../static/dist/js/bootstrap-treeview.min.js"></script>
+    <link href="../../static/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../static/dist/css/bootstrap-grid.css" rel="stylesheet">
+
+    <link href="../../static/dist/css/bootstrap-treeview.min.css" rel="stylesheet">
+    <link href="../../static/dist/css/default.css" rel="stylesheet">
+    <link href="../../static/dist/css/normalize.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+        html,body{
+            height:100%;
+        }
+        .col-sm-4 {
+            width: 20%;
+            height: 98%;
+            background-color: #53c2c261;
+            margin: 0.2%;
+        }
+    </style>
+
     <script>
-        $.get('header.html',function(data){
-            $("#head").html(data)
+
+        $(function(){
+            $.get('header.html', function (data) {
+                $("#head").html(data)
+            })
+            var alternateData = [
+                {
+                    text: 'Parent 1',
+                    tags: ['2'],
+                    nodes: [
+                        {
+                            text: 'Child 1',
+                            tags: ['3'],
+                            nodes: [
+                                {
+                                    text: 'Grandchild 1',
+                                    tags: ['6']
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    tags: ['3']
+                                }
+                            ]
+                        },
+                        {
+                            text: 'Child 2',
+                            tags: ['3']
+                        }
+                    ]
+                },
+                {
+                    text: 'Parent 2',
+                    tags: ['7']
+                },
+                {
+                    text: 'Parent 3',
+                    icon: 'glyphicon glyphicon-earphone',
+                    href: '#demo',
+                    tags: ['11']
+                },
+                {
+                    text: 'Parent 4',
+                    icon: 'glyphicon glyphicon-cloud-download',
+                    href: '/demo.html',
+                    tags: ['19'],
+                    selected: true
+                },
+                {
+                    text: 'Parent 5',
+                    icon: 'glyphicon glyphicon-certificate',
+                    color: 'pink',
+                    backColor: 'red',
+                    href: 'http://www.tesco.com',
+                    tags: ['available','0']
+                }
+            ];
+
+            $('#treeview9').treeview({
+                expandIcon: "glyphicon glyphicon-stop",
+                collapseIcon: "glyphicon glyphicon-unchecked",
+                nodeIcon: "glyphicon glyphicon-user",
+                color: "yellow",
+                backColor: "purple",
+                onhoverColor: "orange",
+                borderColor: "red",
+                showBorder: false,
+                showTags: true,
+                highlightSelected: true,
+                selectedColor: "yellow",
+                selectedBackColor: "darkorange",
+                data: alternateData
+            });
         })
-</script>
+
+
+    </script>
 
 </head>
 <body>
 <div id="head"></div>
-11111111111111111111111111111111
+
+<div class="col-sm-4">
+    <h2>Node Overrides</h2>
+    <div id="treeview9" class=""></div>
+</div>
+
+
+
 </body>
 </html>
