@@ -45,4 +45,6 @@ public interface UserService {
      */
     public List<UserEntity> getUserPage(UserEntity userEntity);
 
+    public void test();
+
 }

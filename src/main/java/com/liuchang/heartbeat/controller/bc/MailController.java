@@ -3,6 +3,7 @@ package com.liuchang.heartbeat.controller.bc;
 import com.liuchang.heartbeat.common.mail.MailSend;
 import com.liuchang.heartbeat.common.result.CommonResult;
 import com.liuchang.heartbeat.entity.bc.MailEntity;
+import com.liuchang.heartbeat.service.bc.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.mail.SimpleMailMessage;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.*;
 public class MailController {
     @Autowired
     private MailSend mailSend;
+    @Autowired
+    private UserService userService;
     @PostMapping
     public CommonResult sendMail(@RequestBody MailEntity mailEntity) {
         CommonResult commonResult = new CommonResult();
@@ -33,5 +36,9 @@ public class MailController {
         } finally {
             return commonResult;
         }
+    }
+    @GetMapping
+    public void getTest(){
+        userService.test();
     }
 }
