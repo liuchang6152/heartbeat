@@ -34,4 +34,10 @@ public class MailEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+//    public static void main(String[] args) {
+//        String tel = "tel:13785663683;";
+//        tel = tel.substring(0,tel.length()-1);
+//        System.out.println(tel);
+//    }
 }

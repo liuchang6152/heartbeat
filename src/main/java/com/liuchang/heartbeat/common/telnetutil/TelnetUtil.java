@@ -19,7 +19,7 @@ public class TelnetUtil {
         Boolean result = false;
         try {
             Socket s = new Socket();
-            SocketAddress add = new InetSocketAddress(telnetEntity.getHostEntity().getHostIp(),Integer.parseInt(telnetEntity.getPort()));
+            SocketAddress add = new InetSocketAddress(telnetEntity.getHostEntity().getHostIp(),telnetEntity.getPort());
             s.connect(add,5000);
             result = true;
         } catch (IOException e) {
@@ -32,7 +32,8 @@ public class TelnetUtil {
 
 //    public static void main(String[] args) {
 //        HostEntity hostEntity = new HostEntity();
-//        TelnetEntity telnetEntity = new TelnetEntity("3306",hostEntity);
+//        hostEntity.setHostIp("10.163.224.117");
+//        TelnetEntity telnetEntity = new TelnetEntity("8093",hostEntity);
 //        System.out.println(telnet(telnetEntity));
 //    }
 

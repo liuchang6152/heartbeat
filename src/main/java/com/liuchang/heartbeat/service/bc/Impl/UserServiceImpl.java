@@ -3,6 +3,7 @@ package com.liuchang.heartbeat.service.bc.Impl;
 import com.liuchang.heartbeat.common.redis.RedisLock;
 import com.liuchang.heartbeat.common.result.CommonResult;
 import com.liuchang.heartbeat.entity.bc.UserEntity;
+import com.liuchang.heartbeat.pojo.bc.UserPojo;
 import com.liuchang.heartbeat.service.bc.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -46,21 +47,25 @@ public class UserServiceImpl implements UserService {
     }
     private static int a;
     @Autowired
-    private  RedisLock redisLock;
+    private RedisLock redisLock;
 
-    public int add(){
-        redisLock.tryLock();
-        a=a+1;
-        redisLock.unlock();
-        return a;
-
+    public void add(){
+        redisLock.lock();
+        try {
+            a=a+1;
+            System.out.println(a);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            redisLock.unlock();
+        }
     }
 
     public void test(){
-        for(int i=0;i<100000;i++){
+        for(int i=0;i<10000;i++){
             new Thread(()->{
                 add();
-                System.out.println(a);
+
             }).start();
         }
     }

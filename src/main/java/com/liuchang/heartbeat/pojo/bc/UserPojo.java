@@ -1,5 +1,6 @@
 package com.liuchang.heartbeat.pojo.bc;
 
+import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
  * @ Description：用户表
  * @ Modified By：
  */
+@Data
 @Entity
 @DynamicUpdate
 @Table(name = "T_BC_USER")
@@ -56,59 +58,5 @@ public class UserPojo {
     @Column(name = "editTime")
     private Timestamp editTime;
 
-    public Long getUserId() {
-        return userId;
-    }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserAccount() {
-        return userAccount;
-    }
-
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public Long getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(Long userRole) {
-        this.userRole = userRole;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public Timestamp getEditTime() {
-        return editTime;
-    }
-
-    public void setEditTime(Timestamp editTime) {
-        this.editTime = editTime;
-    }
 }
